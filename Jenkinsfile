@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo 'Build Dockerimage starts'
                 script{
-                    sh 'docker build -t ebinvarghese/myapp-nginx:1.0 .'
+                    sh 'docker build -t myapp-nginx:1.0 .'
                 }
                 echo 'Build Dockerimage ends'
             }
@@ -27,7 +27,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
                     sh 'docker login -u ebinvarghese -p ${dockerpwd}'
                     }
-                    sh 'docker push ebinvarghese/myapp-nginx:1.0'
+                    sh 'docker push myapp-nginx:1.0'
                     sh 'docker logout'
                 }
             }
