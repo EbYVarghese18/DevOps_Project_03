@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-nginx-deployment
-  namespace: my-nginx-namespace
+  name: myapp-nginx
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-nginx
+      app: myapp-nginx
   template:
     metadata:
       labels:
-        app: my-nginx
+        app: myapp-nginx
     spec:
       containers:
-      - name: my-nginx
-        image: ebinvarghese/webserver:3.0
+      - name: myapp-nginx
+        image: ebinvarghese/myapp-nginx:2.0
         ports:
         - containerPort: 80
 
@@ -24,11 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-nginx-service
-  namespace: my-nginx-namespace
+  name: myapp-nginx-service
 spec:
   selector:
-    app: my-nginx
+    app: myapp-nginx
   ports:
   - name: http
     port: 80
