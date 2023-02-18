@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx-deployment
+  namespace: my-nginx-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-nginx
+  template:
+    metadata:
+      labels:
+        app: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: ebinvarghese/webserver:3.0
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-service
+  namespace: my-nginx-namespace
+spec:
+  selector:
+    app: my-nginx
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  type: NodePort
