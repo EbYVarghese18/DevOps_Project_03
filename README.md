@@ -14,6 +14,6 @@ The workflow is:<br>
 
 5. logout from dockerhub<br>
 
-6. deployment to kubernetes. (I have minkube setup already in my laptop. Some other settings you have to complete in order to deploy to minikube)<br>
+6. deployment to kubernetes. (I have minikube setup already in my laptop. Some other settings you have to complete in order to deploy to minikube)<br>
 
 I have used the environment variable for the TAG. <br>
