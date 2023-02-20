@@ -10,7 +10,7 @@ The workflow is:<br>
 
 3. login to dockerhub<br>
 
-4. push the created code to dockerhub<br>
+4. push the created image to dockerhub<br>
 
 5. logout from dockerhub<br>
 
