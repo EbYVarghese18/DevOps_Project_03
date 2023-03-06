@@ -6,7 +6,7 @@ The workflow is:<br>
 
 1. checkout code from github<br>
 
-2. building a docker image<br>
+2. build a docker image<br>
 
 3. login to dockerhub<br>
 
