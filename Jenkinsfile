@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        KUBECONFIG = '/var/lib/jenkins/.kube/kubeconfig'
         DATE = new Date().format('yy.M')
         TAG = "${DATE}.${BUILD_NUMBER}"
     }
@@ -44,7 +45,7 @@ pipeline {
                 script {
                     
                     // Apply Kubernetes deployment
-                    sh "kubectl create deployment myapp --image=ebinvarghese/myapp-nginx:${TAG}"
+                    sh "kubectl --kubeconfig=${KUBECONFIG} create deployment myapp --image=ebinvarghese/myapp-nginx:${TAG}"
 
                     // Expose the deployment as a service
                     sh "kubectl expose deployment myapp --type=NodePort --port=80"
