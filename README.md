@@ -1,4 +1,4 @@
-# myapp-nginx
+# Sample DevOps Project 03
 
 This is a sample DevOps project. <br>
 
