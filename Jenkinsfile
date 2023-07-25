@@ -40,6 +40,13 @@ pipeline {
                 }
             }
         }
+        stage('Test Kubeconfig') {
+            steps {
+                sh "-x" // Enable shell debugging
+                sh "cat ${KUBECONFIG}"
+                sh "kubectl --kubeconfig=${KUBECONFIG} config view"
+            }
+        }
         stage('Deploy to Kubernetes') {
             steps {
                 script {
