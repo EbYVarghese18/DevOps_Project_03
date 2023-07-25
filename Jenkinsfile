@@ -29,7 +29,8 @@ pipeline {
         stage('Push Docker image to Dockerhub') {
             steps {
                 script{
-                    withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerpwd') {
+                    // withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
                     sh 'docker login -u ebinvarghese -p ${dockerpwd}'
                     }
                     sh 'docker tag ebinvarghese/myapp-nginx:${TAG} ebinvarghese/myapp-nginx:latest'
