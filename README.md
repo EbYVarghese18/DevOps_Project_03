@@ -1,6 +1,6 @@
 # myapp-nginx
 
-This is a sample nginx project. <br>
+This is a sample DevOps project. <br>
 
 The workflow is:<br>
 
