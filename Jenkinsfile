@@ -40,6 +40,13 @@ pipeline {
                 }
             }
         }
+        stage('Deploying App to Kubernetes') {
+            steps {
+                script {
+                    kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+                }
+            }
+        }
         stage('Test Kubeconfig') {
             steps {
                 sh "set +x"
