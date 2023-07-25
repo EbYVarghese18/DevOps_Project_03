@@ -39,6 +39,20 @@ pipeline {
                 }
             }
         }
-        
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    
+                    // Apply Kubernetes deployment
+                    sh "kubectl create deployment myapp --image=ebinvarghese/myapp-nginx:${TAG}"
+
+                    // Expose the deployment as a service
+                    sh "kubectl expose deployment myapp --type=NodePort --port=80"
+
+                    // Wait for the deployment to be ready
+                    // sh "kubectl --namespace=${namespace} rollout status deployment/${deploymentName}"
+                }
+            }
+        }
     }
 }   
