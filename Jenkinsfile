@@ -43,19 +43,9 @@ pipeline {
         stage('Deploying App to Kubernetes') {
             steps {
                 script {
-                    sh 'whoami'
                     sh "kubectl apply -f deployment.yaml"
                     sh "kubectl apply -f service.yaml"
                 }
-            }
-        }
-
-        stage('Test Kubeconfig') {
-            steps {
-                sh "set +x"
-                sh "cat ${KUBECONFIG}"
-                sh "kubectl --kubeconfig=${KUBECONFIG} config view"
-                sh "set -x"
             }
         }
 
