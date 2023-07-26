@@ -14,4 +14,6 @@ The workflow is:<br>
 
 5. logout from dockerhub<br>
 
+6. Deployment to Kubernetes<br>
+
 I have used the environment variable for the TAG as Date+Buildnumber. You can create as per your requirements. <br>
