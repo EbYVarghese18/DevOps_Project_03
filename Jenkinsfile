@@ -43,6 +43,7 @@ pipeline {
         stage('Deploying App to Kubernetes') {
             steps {
                 script {
+                    sh 'whoami'
                     sh "kubectl apply -f deployment.yaml"
                     sh "kubectl apply -f service.yaml"
                 }
