@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   project: default
-
+  autoSync: true
   source:
     repoURL: https://github.com/EbYVarghese18/DevOps_Project_03.git
     targetRevision: HEAD
