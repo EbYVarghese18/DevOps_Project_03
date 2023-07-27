@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: myapp-nginx
-          image: ebinvarghese/myapp-nginx:latest
+          image: ebinvarghese/myapp-green:latest
           ports:
             - containerPort: 80
