@@ -1,6 +1,5 @@
-# Sample DevOps Project 03
+# DevOps Project: Blue-Green Deployment
 
-This is a sample DevOps project. <br>
 
 The workflow is:<br>
 
