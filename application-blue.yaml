@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/EbYVarghese18/DevOps_Project_03.git
     targetRevision: HEAD
-    path: myapp
+    path: myapp-blue
   destination: 
     server: https://kubernetes.default.svc
     namespace: myapp
