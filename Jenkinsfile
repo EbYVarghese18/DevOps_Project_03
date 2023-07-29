@@ -40,13 +40,12 @@ pipeline {
                 }
             }
         }
-        // stage('Deploying App to Kubernetes') {
-        //     steps {
-        //         script {
-        //             sh "kubectl apply -f deployment.yaml"
-        //             sh "kubectl apply -f service.yaml"
-        //         }
-        //     }
-        // }
+        stage('Deploying App With Argocd') {
+            steps {
+                script {
+                    sh "kubectl apply -f application.yaml"
+                }
+            }
+        }
     }
 }   
