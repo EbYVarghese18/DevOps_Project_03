@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    environment {
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
+        DATE = new Date().format('yy.M')
+        TAG = "${DATE}.${BUILD_NUMBER}"
+    }
+    
+    stages {
+
+        stage('SCM checkout') {
+            steps {
+                echo 'checkout starts'
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/EbYVarghese18/DevOps_Project_03']])
+                echo 'checkout ends'
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                echo 'Build Dockerimage starts'
+                script{
+                    sh 'docker build -t ebinvarghese/myapp-green:${TAG} .'
+                }
+                echo 'Build Dockerimage ends'
+            }
+        }
+        
+        stage('Push Docker image to Dockerhub') {
+            steps {
+                script{
+                    withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
+                    sh 'docker login -u ebinvarghese -p ${dockerpwd}'
+                    }
+                    sh 'docker tag ebinvarghese/myapp-green:${TAG} ebinvarghese/myapp-green:latest'
+                    sh 'docker push ebinvarghese/myapp-green:${TAG}'
+                    sh 'docker push ebinvarghese/myapp-green:latest'
+                    sh 'docker logout'
+                }
+            }
+        }
+        stage('Deploying App With Argocd') {
+            steps {
+                script {
+                    sh "kubectl apply -f application-green.yaml"
+                }
+            }
+        }
+    }
+}
