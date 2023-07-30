@@ -43,7 +43,7 @@ pipeline {
         stage('Deploying App With Argocd') {
             steps {
                 script {
-                    sh "kubectl apply -f application.yaml"
+                    sh "kubectl apply -f application-blue.yaml"
                 }
             }
         }
