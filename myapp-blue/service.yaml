@@ -5,10 +5,10 @@ metadata:
   labels:
     app: myapp-blue
 spec:
-  type: NodePort
-  selector:
-    app: myapp-green
   ports:
     - protocol: TCP
       port: 8010
       targetPort: 80
+  selector:
+    app: myapp-blue
+  type: NodePort
