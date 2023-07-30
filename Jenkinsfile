@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo 'Build Dockerimage starts'
                 script{
-                    sh 'docker build -t ebinvarghese/myapp-nginx:${TAG} .'
+                    sh 'docker build -t ebinvarghese/myapp-blue:${TAG} .'
                 }
                 echo 'Build Dockerimage ends'
             }
@@ -33,9 +33,9 @@ pipeline {
                     withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
                     sh 'docker login -u ebinvarghese -p ${dockerpwd}'
                     }
-                    sh 'docker tag ebinvarghese/myapp-nginx:${TAG} ebinvarghese/myapp-nginx:latest'
-                    sh 'docker push ebinvarghese/myapp-nginx:${TAG}'
-                    sh 'docker push ebinvarghese/myapp-nginx:latest'
+                    sh 'docker tag ebinvarghese/myapp-blue:${TAG} ebinvarghese/myapp-blue:latest'
+                    sh 'docker push ebinvarghese/myapp-blue:${TAG}'
+                    sh 'docker push ebinvarghese/myapp-blue:latest'
                     sh 'docker logout'
                 }
             }
