@@ -55,8 +55,8 @@ Workflow of the project:<br>
 
 # Notes:
 
-I have used the environment variable for the TAG as Date+Buildnumber. You can create as per your requirements. <br>
-Dockerhub login credentials needs to be configured in Jenkins. <br>
-Needs to authenticate the jenkins user to use minikube. <br>
+1. I have used the environment variable for the TAG as Date+Buildnumber. You can create as per your requirements.
+2. Dockerhub login credentials needs to be configured in Jenkins.
+3. Needs to authenticate the jenkins user to use minikube.
 
 
