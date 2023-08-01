@@ -53,8 +53,9 @@ Workflow of the project:<br>
        app: myapp-green
 6. Refresh the live site's page and see the update
 
-Note: I have used the environment variable for the TAG as Date+Buildnumber. You can create as per your requirements. <br>
-      Dockerhub login credentials needs to be configured in Jenkins. <br>
-      Needs to authenticate the jenkins user to use minikube. <br>
+Notes: 
+I have used the environment variable for the TAG as Date+Buildnumber. You can create as per your requirements. <br>
+Dockerhub login credentials needs to be configured in Jenkins. <br>
+Needs to authenticate the jenkins user to use minikube. <br>
 
 
