@@ -34,9 +34,9 @@ Workflow of the project:<br>
      kubectl apply -f myapp-green/service.yaml
 8. Check the service list to see the link to the deployed apps:
      minikube service list
-9. Now to redirect the traffic from blue to green, edit the service file and update the selector to myapp-green:
-     selector:
-       app: myapp-green
+9. Now to redirect the traffic from blue to green, edit the service file and update the selector to myapp-green:<br>
+     selector:<br>
+       &nbsp;&nbsp;app: myapp-green<br>
 10. Refresh the blue page to see the update
 
 # Installation: By using Jenkins and Argo (Automation)
@@ -48,9 +48,9 @@ Workflow of the project:<br>
       image for myapp-blue and myapp-green will be created
       The image will be pushed to the dockerhub
       The application will be deployed to k8s cluster by Argo
-5. Now to redirect the traffic from blue to green, update the service file with myapp-green selector:
-     selector:
-       app: myapp-green
+5. Now to redirect the traffic from blue to green, update the service file with myapp-green selector:<br>
+     selector:<br>
+       &nbsp;&nbsp;app: myapp-green<br>
 6. Refresh the live site's page and see the update
 
 # Notes:
@@ -58,6 +58,4 @@ Workflow of the project:<br>
 1. I have used the environment variable for the TAG as Date+Buildnumber. You can create as per your requirements.
 2. Dockerhub login credentials needs to be configured in Jenkins.
 3. Needs to authenticate the jenkins user to use minikube.
-
-
-If any doubts, ping me in whatsapp: +91 9495885325
+4. If any doubts, ping me in whatsapp: +91 9495885325
