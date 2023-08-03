@@ -15,7 +15,7 @@ Workflow of the project:<br>
 
 6. Deployment to Kubernetes<br>
 
-# Installation: Manuaul installation
+# Installation: Manual installation
 
 1. Install docker in your system. Refer the official documentation for installing docker here: https://docs.docker.com/engine/install/ubuntu/
 2. Install minikube in your system. Refer the official documentation for installing minikube here: https://minikube.sigs.k8s.io/docs/start/
@@ -39,7 +39,7 @@ Workflow of the project:<br>
        app: myapp-green
 10. Refresh the blue page to see the update
 
-# Installation: By using Jenkins and Argo
+# Installation: By using Jenkins and Argo (Automation)
 
 1. Install argo. You can refer the official documentation here: https://argo-cd.readthedocs.io/en/stable/getting_started/
 2. configure the pipeline for the live site with Jenkinsfile-live
