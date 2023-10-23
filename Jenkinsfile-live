@@ -21,6 +21,7 @@ pipeline {
             steps {
                 echo 'Build Dockerimage starts'
                 script{
+                    sh 'usermod -aG docker jenkins'
                     sh 'docker build -t ebinvarghese/myapp-blue:${TAG} .'
                 }
                 echo 'Build Dockerimage ends'
